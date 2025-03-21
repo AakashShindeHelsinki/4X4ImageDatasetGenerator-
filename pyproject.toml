@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "4X4ImageDatasetGenerator"
+version = "0.1.0"
+
+[project.scripts]
+ssay = "4X4Dataset.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
