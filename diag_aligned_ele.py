@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 def check_val_list(num):
     five_list = [0,2,8,10]
@@ -8,31 +9,31 @@ def check_val_list(num):
     
     if num == 5:
         num_two = random.choices(five_list)[0]
-        num_three = int(random.choice([a for a in five_list if int(((a-num_two)**2)**0.5) == 2 or int(((a-num_two)**2)**0.5) == 8]))
+        num_three = int(random.choice([a for a in five_list if np.abs(a-num_two) == 2 or np.abs(a-num_two) == 8]))
         return  num_two, num_three
     elif num == 6:
         num_two = random.choices(six_list)[0]
-        num_three = int(random.choice([a for a in six_list if int(((a-num_two)**2)**0.5) == 2 or int(((a-num_two)**2)**0.5) == 8]))
+        num_three = int(random.choice([a for a in six_list if np.abs(a-num_two)== 2 or np.abs(a-num_two)== 8]))
         return  num_two, num_three
     elif num == 9:
         num_two = random.choices(nine_list)[0]
-        num_three = int(random.choice([a for a in nine_list if int(((a-num_two)**2)**0.5) == 2 or int(((a-num_two)**2)**0.5) == 8]))
+        num_three = int(random.choice([a for a in nine_list if np.abs(a-num_two) == 2 or np.abs(a-num_two) == 8]))
         return  num_two, num_three
     elif num == 10:
         num_two = random.choices(ten_list)[0]
-        num_three = int(random.choice([a for a in ten_list if int(((a-num_two)**2)**0.5) == 2 or int(((a-num_two)**2)**0.5) == 8]))
+        num_three = int(random.choice([a for a in ten_list if np.abs(a-num_two)== 2 or np.abs(a-num_two) == 8]))
         return  num_two, num_three
     elif num in five_list:
-        return 5, int(random.choice([a for a in five_list if int(((a-num)**2)**0.5) == 2 or int(((a-num)**2)**0.5) == 8]))
+        return 5, int(random.choice([a for a in five_list if np.abs(a-num) == 2 or np.abs(a-num) == 8]))
     elif num in six_list:
         six_list.remove(num)
-        return 6,  int(random.choice([a for a in six_list if int(((a-num)**2)**0.5) == 2 or int(((a-num)**2)**0.5) == 8]))
+        return 6,  int(random.choice([a for a in six_list if np.abs(a-num) == 2 or np.abs(a-num) == 8]))
     elif num in nine_list:
         nine_list.remove(num)
-        return 9,  int(random.choice([a for a in nine_list if int(((a-num)**2)**0.5) == 2 or int(((a-num)**2)**0.5) == 8]))
+        return 9,  int(random.choice([a for a in nine_list if np.abs(a-num)== 2 or np.abs(a-num)== 8]))
     elif num in ten_list:
         ten_list.remove(num)
-        return 10, int(random.choice([a for a in ten_list if int(((a-num)**2)**0.5) == 2 or int(((a-num)**2)**0.5) == 8]))
+        return 10, int(random.choice([a for a in ten_list if np.abs(a-num) == 2 or np.abs(a-num) == 8]))
     
 def diag_aligned_ele(diff, n):
     Diag_List = []
@@ -48,7 +49,7 @@ def diag_aligned_ele(diff, n):
         for i in [fir_val,sec_val,third_val]:
             Diag_List_ele[i] = round(random.uniform((1+diff)/2,1),4)
             
-        Diag_List.append(Diag_List_ele)    
+        Diag_List.append([Diag_List_ele,0])    
     return Diag_List
 
 

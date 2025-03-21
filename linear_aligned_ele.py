@@ -72,6 +72,7 @@ def linear_aligned_ele(diff, n):
         for i in [fir_val,sec_val,third_val]:
             Lin_List_ele[i] = round(random.uniform((1+diff)/2,1),4)
              
-        Lin_List.append(Lin_List_ele)
+        Lin_List.append([Lin_List_ele,1])
+        
     return Lin_List
 
