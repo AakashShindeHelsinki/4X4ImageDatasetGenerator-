@@ -64,13 +64,13 @@ def linear_aligned_ele(diff, n):
     for i in range(n):
         Lin_List_ele = []
         for j in range(16):
-            random_num_w = round(random.uniform(0,(1-diff)/2),4)
+            random_num_w = round(random.uniform((1+diff)/2,1),4)
             Lin_List_ele.append(random_num_w)
             
         fir_val = random.randint(0,15)
         sec_val, third_val = check_val_list(fir_val)
         for i in [fir_val,sec_val,third_val]:
-            Lin_List_ele[i] = round(random.uniform((1+diff)/2,1),4)
+            Lin_List_ele[i] = round(random.uniform(0,(1-diff)/2),4)
              
         Lin_List.append([Lin_List_ele,1])
         

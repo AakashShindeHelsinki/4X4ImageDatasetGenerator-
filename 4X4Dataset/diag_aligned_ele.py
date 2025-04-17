@@ -40,14 +40,14 @@ def diag_aligned_ele(diff, n):
     for i in range(n):
         Diag_List_ele = []
         for j in range(16):
-            random_num_w = round(random.uniform(0,(1-diff)/2),4)
+            random_num_w = round(random.uniform((1-diff)/2,1),4)
             Diag_List_ele.append(random_num_w)
             
         fir_val = random.randint(0,15)
         sec_val, third_val = check_val_list(fir_val)
         
         for i in [fir_val,sec_val,third_val]:
-            Diag_List_ele[i] = round(random.uniform((1+diff)/2,1),4)
+            Diag_List_ele[i] = round(random.uniform(0,(1+diff)/2),4)
             
         Diag_List.append([Diag_List_ele,0])    
     return Diag_List
